@@ -37,6 +37,7 @@ with open(csvpath, newline = '') as csvfile:
 
         AvgRevChange = Total_Rev_Change/Months
 
+        #Output to terminal
         print()
         print()
         print("Financial Analysis")
@@ -44,7 +45,18 @@ with open(csvpath, newline = '') as csvfile:
         print(f"Total Months: {Months}")
         print(f"Total Revenue: ${round(Total_Revenue,2)}")
         print(f"Average Revenue Change: ${round(AvgRevChange,2)}")
-        print(f"Greatest Increase in Revenue: {MaxRevMonth} ${round(Max_Revenue_Change,2)}")
-        print(f"Greatest Decrease in Revenue: {MinRevMonth} ${round(Min_Revenue_Change,2)}")
+        print(f"Greatest Increase in Profits: {MaxRevMonth} (${round(Max_Revenue_Change,2)})")
+        print(f"Greatest Decrease in Profits: {MinRevMonth} (${round(Min_Revenue_Change,2)})")
         print()
+
+        #Output to file
+        f=open("PyBankOutput.txt", 'w')
+        f.write("Financial Analysis\r")
+        f.write("----------------------------\r")
+        f.write(f"Total Months: {Months}\r")
+        f.write(f"Total Revenue: ${round(Total_Revenue,2)}\r")
+        f.write(f"Average Revenue Change: ${round(AvgRevChange,2)}\r")
+        f.write(f"Greatest Increase in Profits: {MaxRevMonth} (${round(Max_Revenue_Change,2)})\r")
+        f.write(f"Greatest Decrease in Profits: {MinRevMonth} (${round(Min_Revenue_Change,2)})\r")
+        f.close
 
